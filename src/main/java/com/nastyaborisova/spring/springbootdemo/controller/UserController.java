@@ -60,8 +60,9 @@ public class UserController {
         userService.updateUser(user);
         return "redirect:/";
     }
+
     @GetMapping("/updateUser/{id}")
-    public String showUpdateForm(@PathVariable("id") Long id, Model model){
+    public String showUpdateForm(@PathVariable("id") Long id, Model model) {
         User user = userService.findById(id);
         model.addAttribute("user", user);
         return "/updateUser";
@@ -70,9 +71,9 @@ public class UserController {
     @GetMapping("/findById")
     public String findById(@RequestParam("id") Long id, Model model) {
         User user = userService.findById(id);
-        if(user!=null){
+        if (user != null) {
             model.addAttribute("user", user);
-        }else {
+        } else {
             model.addAttribute("errorMessage", "User not found!");
         }
         return "findById";

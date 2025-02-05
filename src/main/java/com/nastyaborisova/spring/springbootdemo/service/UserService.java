@@ -22,7 +22,7 @@ public class UserService {
 
     @Transactional
     public void updateUser(User user) {
-        if (!userRepository.existsById(user.getId())){
+        if (!userRepository.existsById(user.getId())) {
             throw new UserNotFindExeption("User with id " + user.getId() + " not found");
         }
         userRepository.save(user);
@@ -30,7 +30,7 @@ public class UserService {
 
     public User findById(Long id) {
         return userRepository.findById(id)
-                .orElseThrow(() -> new UserNotFindExeption ("User with id " + id + " not found"));
+                .orElseThrow(() -> new UserNotFindExeption("User with id " + id + " not found"));
     }
 
     @Transactional
