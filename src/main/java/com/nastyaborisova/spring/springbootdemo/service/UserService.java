@@ -1,5 +1,6 @@
 package com.nastyaborisova.spring.springbootdemo.service;
 
+import com.nastyaborisova.spring.springbootdemo.exeption.UserNotFindExeption;
 import com.nastyaborisova.spring.springbootdemo.model.User;
 import com.nastyaborisova.spring.springbootdemo.repository.UserRepository;
 import jakarta.transaction.Transactional;
@@ -8,7 +9,7 @@ import java.util.List;
 
 
 @Service
-public class UserService {
+public class UserService implements UsService{
     private final UserRepository userRepository;
 
     public UserService(UserRepository userRepository) {
@@ -43,11 +44,5 @@ public class UserService {
 
     public List<User> getAllUsers() {
         return userRepository.findAll();
-    }
-
-    static class UserNotFindExeption extends RuntimeException {
-        public UserNotFindExeption(String message) {
-            super(message);
-        }
     }
 }

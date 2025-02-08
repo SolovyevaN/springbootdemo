@@ -33,10 +33,7 @@ public class UserController {
                           @RequestParam("surname") String surname,
                           @RequestParam("age") int age,
                           RedirectAttributes redirectAttributes) {
-        User user = new User();
-        user.setName(name);
-        user.setSurname(surname);
-        user.setAge(age);
+        User user = new User(name, surname, age);
         userService.addUser(user);
         redirectAttributes.addAttribute("message", "User added successfully! ");
         return "redirect:/";
