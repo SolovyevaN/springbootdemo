@@ -34,7 +34,7 @@
         <td>
             <a th:href="@{/updateUser/{id}(id=${user.id})}">Edit</a>
             <form th:action="@{/deleteUser/{id}(id=${user.id})}" method="post" style="display: inline;">
-                <input type="hidden" name="_method" value="DELETE"/>
+                <input type="hidden" name="_method" value="DELETE">
                 <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>
             </form>
         </td>
